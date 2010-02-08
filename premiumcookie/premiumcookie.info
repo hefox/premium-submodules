@@ -1,0 +1,5 @@
+name = Premium cookie access
+description = Bases access to premium content based on a cookie
+package = Content
+core = 6.x
+dependencies[] = premium

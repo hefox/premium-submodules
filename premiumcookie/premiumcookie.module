@@ -1,0 +1,19 @@
+<?php
+
+
+function premiumcookie_form(&$form_state) {
+  $form['submit'] = array(
+    '#type' => 'submit', 
+    '#value' => t('View')
+  );
+  return $form;
+}
+
+function premiumcookie_form_submit($form, &$form_state) {
+  setcookie("premium_access", 1, time()+60*60*24*30, '/');
+}
+
+function premiumcookie_premium_access($user,$node) {
+  if ($_COOKIE['premium_access']) return TRUE; 
+  else return user_access('access premium content');
+}
